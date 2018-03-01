@@ -1,0 +1,16 @@
+train_net: "../locomotion/cnn/softmax/experiment/test_deepConv_gesture_train.prototxt"
+test_net: "../locomotion/cnn/softmax/experiment/test_deepConv_gesture_test.prototxt"
+test_iter: 0
+test_interval: 28000
+base_lr: 0.000100
+lr_policy: "step"
+gamma: 0.1
+stepsize: 4666
+display: 28000
+iter_size: 1
+max_iter: 14000
+weight_decay: 0.00000
+snapshot: 0
+solver_mode: GPU
+type: "RMSProp"
+rms_decay: 0.950000
