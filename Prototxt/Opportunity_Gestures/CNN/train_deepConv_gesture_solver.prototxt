@@ -1,0 +1,16 @@
+train_net: "../gesture/cnn/softmax/experiment/train_deepConv_gesture_train.prototxt"
+test_net: "../gesture/cnn/softmax/experiment/train_deepConv_gesture_test.prototxt"
+test_iter: 0
+test_interval: 66936
+base_lr: 0.001000
+lr_policy: "step"
+gamma: 0.1
+stepsize: 11156
+display: 66936
+iter_size: 1
+max_iter: 33468
+weight_decay: 0.00000
+snapshot: 0
+solver_mode: GPU
+type: "RMSProp"
+rms_decay: 0.950000
