@@ -623,11 +623,10 @@ class Network_user(object):
         try:
             if self.network == 'cnn' or self.network == 'cnn_imu':
                 if in_train == True:
-                    if os.path.isfile('../' + self.folder_exp + '/../caffemodel/deepConv_weights.caffemodel'):
-                        weights = '../' + self.folder_exp + '/../caffemodel/deepConv_weights.caffemodel'
+                    if os.path.isfile('../' + self.folder_exp + '/../caffemodel/deepConv_weights_' + self.network + '.caffemodel'):
+                        weights = '../' + self.folder_exp + '/../caffemodel/deepConv_weights_' + self.network + '.caffemodel'
                         self.logger.info('Caffe VGG weights found')
                         print 'Caffe VGG weights found'
-                    #net_test = caffe.Net('../' + self.folder_exp + '/../prototxt/test_deepConv_gesture_test.prototxt', weights, caffe.TEST)   
                     
                 net.net.copy_from(weights)
                 net.test_nets[0].copy_from(weights)
