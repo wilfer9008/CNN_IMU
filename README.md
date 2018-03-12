@@ -7,3 +7,10 @@ Updating in progress.
 Protoxtx files and caffemodels (weights for caffe) are found in CNN_IMU_rep
 
 run main.py selecting the dataset and the network type.
+
+
+## Networks 
+Networks, their configurations per dataset and the solver are found in CNN_IMU_rep/src/CNN.py
+
+## Dataset
+Pamap2 preprocessing found in CNN_IMU_rep/src/preprocessing_pamap2.py
