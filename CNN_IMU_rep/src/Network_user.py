@@ -862,11 +862,11 @@ class Network_user(object):
         
         
         if self.dataset == 'locomotion':
-            X_train, y_train, X_val, y_val, X_test, y_test = self.load_dataset('/data/fmoya/HAR/opportunity/train_val_test_dataset_locomotion.data')
+            X_train, y_train, X_val, y_val, X_test, y_test = self.load_dataset('path_to_locomotion_dataset/train_val_test_dataset_locomotion.data')
         elif self.dataset == 'gesture':
-            X_train, y_train, X_val, y_val, X_test, y_test = self.load_dataset('/data/fmoya/HAR/opportunity/train_val_test_dataset_2.data')
+            X_train, y_train, X_val, y_val, X_test, y_test = self.load_dataset('path_to_gestures_dataset/train_val_test_dataset_2.data')
         elif self.dataset == 'pamap2':
-            X_train, y_train, X_val, y_val, X_test, y_test = self.load_dataset('/data/fmoya/HAR/pamap2/train_val_test_dataset_pamap2_12_classes_norm.data')
+            X_train, y_train, X_val, y_val, X_test, y_test = self.load_dataset('path_to_pamap2_dataset/train_val_test_dataset_pamap2_12_classes_norm.data')
         if train_test_modus == 0:
             del X_test
             del y_test
