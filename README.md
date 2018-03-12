@@ -3,7 +3,7 @@ Implementation code and parameters od the CNN-IMU presented in the Journal "Conv
 
 Updating in progress.
 
-For testing
+## For testing
 Protoxtx files and caffemodels (weights for caffe) are found in CNN_IMU_rep
 
 run main.py selecting the dataset and the network type.
