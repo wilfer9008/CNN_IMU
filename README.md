@@ -8,7 +8,7 @@ Abstract: Human activity recognition (HAR) is a classification task for recogniz
 of activities of daily living using multichannel time-series. These time-series are acquired from body-worn devices, which are composed of different types of sensors. The deep architectures process these measurements for finding basic and complex features in human corporal movements, and for classifying them into a set of human actions. As the devices are worn at different parts of the human body, we propose a novel deep neural network for HAR. This network handles sequence measurements from different body-worn devices separately. An evaluation of the architecture is performed on three datasets, the Oportunity, Pamap2, and an industrial dataset, outperforming the state-of-the-art. In addition, different network configurations will also be evaluated. We find that applying convolutions per sensor channe
 
 ## Prerequisites
-THe Neuron pruning using Maxout units has the following dependencies:
+The implementation of the CNN-IMU has the following dependencies:
 - Caffe
 - numpy
 - OpenCV/Python
