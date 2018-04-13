@@ -6,13 +6,13 @@ layer {
   top: "label"
   input_param {
     shape {
-      dim: 1
+      dim: 50
       dim: 1
       dim: 100
       dim: 40
     }
     shape {
-      dim: 1
+      dim: 50
       dim: 1
     }
   }
@@ -95,22 +95,9 @@ layer {
   top: "conv2"
 }
 layer {
-  name: "pool2"
-  type: "Pooling"
-  bottom: "conv2"
-  top: "pool2"
-  pooling_param {
-    pool: MAX
-    kernel_h: 2
-    kernel_w: 1
-    stride_h: 2
-    stride_w: 1
-  }
-}
-layer {
   name: "conv3"
   type: "Convolution"
-  bottom: "pool2"
+  bottom: "conv2"
   top: "conv3"
   param {
     lr_mult: 1
