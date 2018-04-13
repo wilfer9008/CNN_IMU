@@ -591,7 +591,12 @@ class Network_user(object):
     
     def train(self, X_train_in, y_train_in, X_val_in, y_val_in, statistics, ea_itera, batch_size = 1, y_data_in = None):
         
+        self.logger.info("EA_iter {} Training network...".format(ea_itera))
+        print "EA_iter {} Training network...".format(ea_itera)
+        
         return
+    
+    
     
     
             
@@ -603,17 +608,6 @@ class Network_user(object):
         
         self.logger.info("EA_iter {} Testing network...".format(ea_itera))
         print "EA_iter {} Testing network...".format(ea_itera)
-        
-
-        if self.network == 'cnn' or self.network == 'cnn_imu':
-            CNN_obj = CNN(self.num_classes, self.num_filters, self.output, self.network, self.dataset, self.filter_size,
-                          folder_exp = self.folder_exp, lr = self.lr, fine_tunning = self.fine_tunning, sliding_window_length = self.sliding_window_length,
-                          NB_sensor_channels = self.NB_sensor_channels) 
-            
-            net = CNN_obj.solver(train_dataset = None, target_values = None,
-                                 niter = 14000, step_size = 14000 // 3,
-                                 batch_size = 1, if_Train = False,
-                                 use_maxout = self.use_maxout)
             
             
         
@@ -623,13 +617,13 @@ class Network_user(object):
         try:
             if self.network == 'cnn' or self.network == 'cnn_imu':
                 if in_train == True:
-                    if os.path.isfile('../' + self.folder_exp + '/../caffemodel/deepConv_weights_' + self.network + '.caffemodel'):
-                        weights = '../' + self.folder_exp + '/../caffemodel/deepConv_weights_' + self.network + '.caffemodel'
+                    if os.path.isfile('../' + self.folder_exp + '/../caffemodel/deepConv_weights_' + self.network +'2.caffemodel'):
+                        weights = '../' + self.folder_exp + '/../caffemodel/deepConv_weights_' + self.network +'2.caffemodel'
                         self.logger.info('Caffe VGG weights found')
                         print 'Caffe VGG weights found'
+                    net_test = caffe.Net('../' + self.folder_exp + '/../prototxt/'+ self.network  + '2_' + self.dataset + '_test.prototxt', weights, caffe.TEST)   
                     
-                net.net.copy_from(weights)
-                net.test_nets[0].copy_from(weights)
+
                 print 'weights copied'
                 
                 
@@ -656,8 +650,7 @@ class Network_user(object):
 
         cost_test = 0
         acc_test = 0
-        #test_pred = np.empty((0))
-        #test_true = np.empty((0))
+
         
         iterations_t = X_test.shape[0]
         if self.output == 'softmax':
@@ -676,26 +669,30 @@ class Network_user(object):
 
 
             if self.network == 'cnn':
-                net.test_nets[0].blobs['data'].data[...] = test_batch_v
+                net_test.blobs['data'].data[...] = test_batch_v
+                net_test.blobs['label'].data[...] = test_batch_l.astype(int)
 
                 
             elif self.network == 'cnn_imu':
                 if self.dataset == 'locomotion' or self.dataset == 'gesture':
-                    net.test_nets[0].blobs['acce'].data[...] = test_batch_v[:,:,:,0:36]
-                    net.test_nets[0].blobs['back'].data[...] = test_batch_v[:,:,:,36:81]
-                    net.test_nets[0].blobs['lshoe'].data[...] = test_batch_v[:,:,:,81:113]
+
+                    net_test.blobs['acce'].data[...] = test_batch_v[:,:,:,0:36]
+                    net_test.blobs['back'].data[...] = test_batch_v[:,:,:,36:81]
+                    net_test.blobs['lshoe'].data[...] = test_batch_v[:,:,:,81:113]
                     
-                    #net.test_nets[0].blobs['label'].data[...] = test_batch_l.astype(int)
                     
                 elif self.dataset == 'pamap2':
-                    net.test_nets[0].blobs['HR'].data[...] = np.reshape(test_batch_v[:,:,:,0],
+                    
+                    
+                    net_test.blobs['HR'].data[...] = np.reshape(test_batch_v[:,:,:,0],
                                                                         newshape = (test_batch_v[:,:,:,0].shape[0],
                                                                                     test_batch_v[:,:,:,0].shape[1],
                                                                                     test_batch_v[:,:,:,0].shape[2], 1))
-                    net.test_nets[0].blobs['Hand'].data[...] = test_batch_v[:,:,:,1:14]
-                    net.test_nets[0].blobs['Chest'].data[...] = test_batch_v[:,:,:,14:27]
-                    net.test_nets[0].blobs['Ankle'].data[...] = test_batch_v[:,:,:,27:40]
-                    net.test_nets[0].blobs['label'].data[...] = test_batch_l.astype(int)
+                    net_test.blobs['Hand'].data[...] = test_batch_v[:,:,:,1:14]
+                    net_test.blobs['Chest'].data[...] = test_batch_v[:,:,:,14:27]
+                    net_test.blobs['Ankle'].data[...] = test_batch_v[:,:,:,27:40]
+                    net_test.blobs['label'].data[...] = test_batch_l.astype(int)
+                    
                     
                 '''
                 else:
@@ -709,25 +706,19 @@ class Network_user(object):
                     net.test_nets[0].blobs['rshoe'].data[...] = test_batch_v[:,:,:,97:113]'''
 
 
-                net.test_nets[0].forward()
-                cost_test += net.test_nets[0].blobs['loss'].data.copy()
-                atts_batch_val = net.test_nets[0].blobs['class_proba'].data.copy()
+            net_test.forward()
+
+            
+            cost_test += net_test.blobs['loss'].data.copy()
+            atts_batch_val = net_test.blobs['class_proba'].data.copy()
 
 
-
-            if self.network == 'cnn' or self.network == 'cnn_imu':
-                if self.output == 'softmax':
-
-                    net.test_nets[0].forward()           
-
-                    cost_test += net.test_nets[0].blobs['loss'].data.copy()
-                    atts_batch_val = net.test_nets[0].blobs['class_proba'].data.copy()   
-                    
-                    prediction = np.argmax(atts_batch_val, axis = 1)
-                    acc_test += np.sum(prediction == test_batch_l.flatten().astype(int))            
-                    predictions_labels.append(np.argmax(atts_batch_val).astype(int))
-                    
-                    deep_descriptor = np.append(deep_descriptor, atts_batch_val, axis = 0)
+                
+            prediction = np.argmax(atts_batch_val, axis = 1)
+            acc_test += np.sum(prediction == test_batch_l.flatten().astype(int))            
+            predictions_labels.append(np.argmax(atts_batch_val).astype(int))
+            
+            deep_descriptor = np.append(deep_descriptor, atts_batch_val, axis = 0)
                     
                         
                 
@@ -736,7 +727,7 @@ class Network_user(object):
             costs_test.append(cost_test / np.float(b+1))
             accs_test.append(acc_test / np.float(b+1))
             
-            if (b+1) % 1000 == 0:
+            if (b+1) % 500 == 0:
                 
                 self.logger.info("EA_iter {} \n".format(ea_itera))
                 print "EA_iter {} \n".format(ea_itera)
@@ -759,8 +750,6 @@ class Network_user(object):
                 line1_v.set_xdata(range(len(costs_test)))
                 line2_v.set_ydata(accs_test)
                 line2_v.set_xdata(range(len(accs_test)))
-                #line3_v.set_ydata(accs_f1_valid)
-                #line3_v.set_xdata(range(len(accs_f1_valid)))
                 
                 ax_v[0].relim()
                 ax_v[0].autoscale_view()
@@ -830,18 +819,13 @@ class Network_user(object):
         
         
         del X_test
-        del net
+        del net_test
         del costs_test
         del accs_test
         del predictions_labels_2_show
         
         return acc_test / float(iterations_t), acc_f1, percentage_pred, deep_descriptor, y_test       
           
-          
-          
-            
-    
-    
        
     
     def evaluating_attr(self, ea_itera ,batch_size = 1, train_test_modus = 0):
@@ -862,11 +846,11 @@ class Network_user(object):
         
         
         if self.dataset == 'locomotion':
-            X_train, y_train, X_val, y_val, X_test, y_test = self.load_dataset('path_to_locomotion_dataset/train_val_test_dataset_locomotion.data')
+            X_train, y_train, X_val, y_val, X_test, y_test = self.load_dataset('/data/fmoya/HAR/opportunity/train_val_test_dataset_locomotion.data')
         elif self.dataset == 'gesture':
-            X_train, y_train, X_val, y_val, X_test, y_test = self.load_dataset('path_to_gestures_dataset/train_val_test_dataset_2.data')
+            X_train, y_train, X_val, y_val, X_test, y_test = self.load_dataset('/data/fmoya/HAR/opportunity/train_val_test_dataset_2.data')
         elif self.dataset == 'pamap2':
-            X_train, y_train, X_val, y_val, X_test, y_test = self.load_dataset('path_to_pamap2_dataset/train_val_test_dataset_pamap2_12_classes_norm.data')
+            X_train, y_train, X_val, y_val, X_test, y_test = self.load_dataset('/data/fmoya/HAR/pamap2/train_val_test_dataset_pamap2_12_classes_norm.data')
         if train_test_modus == 0:
             del X_test
             del y_test
@@ -898,8 +882,8 @@ class Network_user(object):
             
         if train_test_modus == 0:
 
-            self.logger.info("EA_iter {} Final training and testing...".format(ea_itera))
-            print("EA_iter {} Final training and testing...".format(ea_itera))
+            self.logger.info("EA_iter {} Training and validating ...".format(ea_itera))
+            print("EA_iter {} Training and validating ...".format(ea_itera))
                         
             
             
