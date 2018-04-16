@@ -22,7 +22,7 @@ run main.py selecting the dataset and the network type.
 
 ## Networks 
 Networks, their configurations per dataset and the solver could be created using CNN_IMU_rep/src/CNN.py
-- For testing, each dataset contains the prototxt file of the architectures and some (due to storage limits) caffemodels.
+- For testing, each dataset contains the prototxt file of the architectures and some (due to storage limits) caffemodels. Caffemodel for the CNN-2 and CNN-IMU-2 on the Pamap2 dataset are provided. 
 
 ## Dataset
 Pamap2 preprocessing found in CNN_IMU_rep/src/preprocessing_pamap2.py
