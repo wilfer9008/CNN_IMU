@@ -683,3 +683,174 @@
   0.93890675  0.98267327  0.92574257  0.86470588  0.79623824  0.99825175]
 
 [2018-04-13 16:56:21,359, Network_selecter, INFO] EA: TEsting accuracy net 0.910940803383 with f1 0.909719330104 net_dist 0 f1_dist 0
+[2018-04-16 16:48:30,411, Network_selecter, INFO] Main: Starting training of Opportunity task with CNN_EA
+[2018-04-16 16:48:30,412, Network_selecter, INFO] EA: Setting logger in folder pamap2/cnn/softmax/experiment...
+[2018-04-16 16:48:30,412, Network_selecter, INFO] User: Setting logger in folder pamap2/cnn/softmax/experiment...
+[2018-04-16 16:48:30,413, Network_selecter, INFO] Setting GPU in caffe 2 EA_iter 0 used folder pamap2/cnn/softmax/experiment...
+[2018-04-16 16:48:31,935, Network_selecter, INFO] EA_iter 0 used folder pamap2/cnn/softmax/experiment...
+[2018-04-16 16:48:31,935, Network_selecter, INFO] EA_iter 0 Loading data...
+[2018-04-16 16:48:31,936, Network_selecter, INFO] CNN: loading dataset
+[2018-04-16 16:48:35,718, Network_selecter, INFO]  ..from file /data/fmoya/HAR/pamap2/train_val_test_dataset_pamap2_12_classes_norm.data
+[2018-04-16 16:48:35,719, Network_selecter, INFO]  ..reading instances: train (473447, 40), val (90814, 40), test (83366, 40)
+[2018-04-16 16:48:35,818, Network_selecter, INFO] EA_iter 0 Data loaded
+[2018-04-16 16:48:35,819, Network_selecter, INFO] Sliding window: Creating windows 100 with step 22
+[2018-04-16 16:48:36,273, Network_selecter, INFO] Sliding window: Creating windows 100 with step 22
+[2018-04-16 16:48:36,359, Network_selecter, INFO] EA_iter 0  ..after sliding window (training): inputs (21516, 100, 40), targets (21516,)
+[2018-04-16 16:48:36,360, Network_selecter, INFO] EA_iter 0  ..after sliding window (validation): inputs (4124, 100, 40), targets (4124,)
+[2018-04-16 16:48:36,360, Network_selecter, INFO] Sliding window: Creating windows 100 with step 22
+[2018-04-16 16:48:36,446, Network_selecter, INFO] EA_iter 0  ..after sliding window (testing): inputs (3785, 100, 40), targets (3785,)
+[2018-04-16 16:48:36,446, Network_selecter, INFO] EA_iter 0 Final testing...
+[2018-04-16 16:48:36,763, Network_selecter, INFO] Some statistics
+[2018-04-16 16:48:36,764, Network_selecter, INFO] Statistics {0: 739, 1: 2561, 2: 2457, 3: 2510, 4: 3227, 5: 1141, 6: 2184, 7: 2446, 8: 1573, 9: 1422, 10: 2337, 11: 3043}
+[2018-04-16 16:49:04,459, Network_selecter, INFO] EA_iter 0 Testing network...
+[2018-04-16 16:49:05,565, Network_selecter, INFO] Test: Loading weights
+[2018-04-16 16:49:11,163, Network_selecter, INFO] Caffe VGG weights found
+[2018-04-16 16:50:00,830, Network_selecter, INFO] Main: Starting training of Opportunity task with CNN_EA
+[2018-04-16 16:50:00,831, Network_selecter, INFO] EA: Setting logger in folder pamap2/cnn/softmax/experiment...
+[2018-04-16 16:50:00,832, Network_selecter, INFO] User: Setting logger in folder pamap2/cnn/softmax/experiment...
+[2018-04-16 16:50:00,832, Network_selecter, INFO] Setting GPU in caffe 2 EA_iter 0 used folder pamap2/cnn/softmax/experiment...
+[2018-04-16 16:50:02,306, Network_selecter, INFO] EA_iter 0 used folder pamap2/cnn/softmax/experiment...
+[2018-04-16 16:50:02,307, Network_selecter, INFO] EA_iter 0 Loading data...
+[2018-04-16 16:50:02,307, Network_selecter, INFO] CNN: loading dataset
+[2018-04-16 16:50:02,748, Network_selecter, INFO]  ..from file /data/fmoya/HAR/pamap2/train_val_test_dataset_pamap2_12_classes_norm.data
+[2018-04-16 16:50:02,749, Network_selecter, INFO]  ..reading instances: train (473447, 40), val (90814, 40), test (83366, 40)
+[2018-04-16 16:50:02,827, Network_selecter, INFO] EA_iter 0 Data loaded
+[2018-04-16 16:50:02,827, Network_selecter, INFO] Sliding window: Creating windows 100 with step 22
+[2018-04-16 16:50:03,230, Network_selecter, INFO] Sliding window: Creating windows 100 with step 22
+[2018-04-16 16:50:03,296, Network_selecter, INFO] EA_iter 0  ..after sliding window (training): inputs (21516, 100, 40), targets (21516,)
+[2018-04-16 16:50:03,296, Network_selecter, INFO] EA_iter 0  ..after sliding window (validation): inputs (4124, 100, 40), targets (4124,)
+[2018-04-16 16:50:03,297, Network_selecter, INFO] Sliding window: Creating windows 100 with step 22
+[2018-04-16 16:50:03,363, Network_selecter, INFO] EA_iter 0  ..after sliding window (testing): inputs (3785, 100, 40), targets (3785,)
+[2018-04-16 16:50:03,363, Network_selecter, INFO] EA_iter 0 Final testing...
+[2018-04-16 16:50:03,639, Network_selecter, INFO] Some statistics
+[2018-04-16 16:50:03,640, Network_selecter, INFO] Statistics {0: 739, 1: 2561, 2: 2457, 3: 2510, 4: 3227, 5: 1141, 6: 2184, 7: 2446, 8: 1573, 9: 1422, 10: 2337, 11: 3043}
+[2018-04-16 16:50:07,951, Network_selecter, INFO] EA_iter 0 Testing network...
+[2018-04-16 16:50:08,844, Network_selecter, INFO] Test: Loading weights
+[2018-04-16 16:50:15,854, Network_selecter, INFO] Caffe VGG weights found
+[2018-04-16 16:51:18,166, Network_selecter, INFO] Main: Starting training of Opportunity task with CNN_EA
+[2018-04-16 16:51:18,167, Network_selecter, INFO] EA: Setting logger in folder pamap2/cnn/softmax/experiment...
+[2018-04-16 16:51:18,167, Network_selecter, INFO] User: Setting logger in folder pamap2/cnn/softmax/experiment...
+[2018-04-16 16:51:18,168, Network_selecter, INFO] Setting GPU in caffe 2 EA_iter 0 used folder pamap2/cnn/softmax/experiment...
+[2018-04-16 16:51:19,679, Network_selecter, INFO] EA_iter 0 used folder pamap2/cnn/softmax/experiment...
+[2018-04-16 16:51:19,680, Network_selecter, INFO] EA_iter 0 Loading data...
+[2018-04-16 16:51:19,681, Network_selecter, INFO] CNN: loading dataset
+[2018-04-16 16:51:20,103, Network_selecter, INFO]  ..from file /data/fmoya/HAR/pamap2/train_val_test_dataset_pamap2_12_classes_norm.data
+[2018-04-16 16:51:20,104, Network_selecter, INFO]  ..reading instances: train (473447, 40), val (90814, 40), test (83366, 40)
+[2018-04-16 16:51:20,181, Network_selecter, INFO] EA_iter 0 Data loaded
+[2018-04-16 16:51:20,181, Network_selecter, INFO] Sliding window: Creating windows 100 with step 22
+[2018-04-16 16:51:20,588, Network_selecter, INFO] Sliding window: Creating windows 100 with step 22
+[2018-04-16 16:51:20,656, Network_selecter, INFO] EA_iter 0  ..after sliding window (training): inputs (21516, 100, 40), targets (21516,)
+[2018-04-16 16:51:20,656, Network_selecter, INFO] EA_iter 0  ..after sliding window (validation): inputs (4124, 100, 40), targets (4124,)
+[2018-04-16 16:51:20,656, Network_selecter, INFO] Sliding window: Creating windows 100 with step 22
+[2018-04-16 16:51:20,723, Network_selecter, INFO] EA_iter 0  ..after sliding window (testing): inputs (3785, 100, 40), targets (3785,)
+[2018-04-16 16:51:20,723, Network_selecter, INFO] EA_iter 0 Final testing...
+[2018-04-16 16:51:21,003, Network_selecter, INFO] Some statistics
+[2018-04-16 16:51:21,005, Network_selecter, INFO] Statistics {0: 739, 1: 2561, 2: 2457, 3: 2510, 4: 3227, 5: 1141, 6: 2184, 7: 2446, 8: 1573, 9: 1422, 10: 2337, 11: 3043}
+[2018-04-16 16:51:26,976, Network_selecter, INFO] EA_iter 0 Testing network...
+[2018-04-16 16:51:27,684, Network_selecter, INFO] Test: Loading weights
+[2018-04-16 16:51:30,482, Network_selecter, INFO] Caffe VGG weights found
+[2018-04-16 16:53:04,360, Network_selecter, INFO] Main: Starting training of Opportunity task with CNN_EA
+[2018-04-16 16:53:04,361, Network_selecter, INFO] EA: Setting logger in folder pamap2/cnn/softmax/experiment...
+[2018-04-16 16:53:04,361, Network_selecter, INFO] User: Setting logger in folder pamap2/cnn/softmax/experiment...
+[2018-04-16 16:53:04,362, Network_selecter, INFO] Setting GPU in caffe 2 EA_iter 0 used folder pamap2/cnn/softmax/experiment...
+[2018-04-16 16:53:05,875, Network_selecter, INFO] EA_iter 0 used folder pamap2/cnn/softmax/experiment...
+[2018-04-16 16:53:05,875, Network_selecter, INFO] EA_iter 0 Loading data...
+[2018-04-16 16:53:05,875, Network_selecter, INFO] CNN: loading dataset
+[2018-04-16 16:53:06,256, Network_selecter, INFO]  ..from file /data/fmoya/HAR/pamap2/train_val_test_dataset_pamap2_12_classes_norm.data
+[2018-04-16 16:53:06,256, Network_selecter, INFO]  ..reading instances: train (473447, 40), val (90814, 40), test (83366, 40)
+[2018-04-16 16:53:06,334, Network_selecter, INFO] EA_iter 0 Data loaded
+[2018-04-16 16:53:06,334, Network_selecter, INFO] Sliding window: Creating windows 100 with step 22
+[2018-04-16 16:53:06,714, Network_selecter, INFO] Sliding window: Creating windows 100 with step 22
+[2018-04-16 16:53:06,788, Network_selecter, INFO] EA_iter 0  ..after sliding window (training): inputs (21516, 100, 40), targets (21516,)
+[2018-04-16 16:53:06,788, Network_selecter, INFO] EA_iter 0  ..after sliding window (validation): inputs (4124, 100, 40), targets (4124,)
+[2018-04-16 16:53:06,788, Network_selecter, INFO] Sliding window: Creating windows 100 with step 22
+[2018-04-16 16:53:06,861, Network_selecter, INFO] EA_iter 0  ..after sliding window (testing): inputs (3785, 100, 40), targets (3785,)
+[2018-04-16 16:53:06,861, Network_selecter, INFO] EA_iter 0 Final testing...
+[2018-04-16 16:53:07,158, Network_selecter, INFO] Some statistics
+[2018-04-16 16:53:07,159, Network_selecter, INFO] Statistics {0: 739, 1: 2561, 2: 2457, 3: 2510, 4: 3227, 5: 1141, 6: 2184, 7: 2446, 8: 1573, 9: 1422, 10: 2337, 11: 3043}
+[2018-04-16 16:53:09,877, Network_selecter, INFO] EA_iter 0 Testing network...
+[2018-04-16 16:53:10,374, Network_selecter, INFO] Test: Loading weights
+[2018-04-16 16:53:12,277, Network_selecter, INFO] Caffe VGG weights found
+[2018-04-16 16:53:15,375, Network_selecter, INFO] Data: Creating batches...
+[2018-04-16 16:53:15,430, Network_selecter, INFO] Prepare: Preparing data with batch size 1
+[2018-04-16 16:53:15,589, Network_selecter, INFO] Prepare: Preparing data with batch size 1
+[2018-04-16 16:53:15,655, Network_selecter, INFO]  ..after creating batches (validation): inputs (3784, 1, 1, 100, 40), targets (3784, 1, 1)
+[2018-04-16 16:53:29,455, Network_selecter, INFO] EA_iter 0 
+
+[2018-04-16 16:53:29,456, Network_selecter, INFO]     Test: iter 499 
+ Pred 3 
+ Tgt [ 2.]
+[2018-04-16 16:53:29,457, Network_selecter, INFO]     Test: iter 499 cost 0.198815628608
+[2018-04-16 16:53:29,457, Network_selecter, INFO]     Test: iter 499 acc 0.95 
+
+[2018-04-16 16:53:36,621, Network_selecter, INFO] EA_iter 0 
+
+[2018-04-16 16:53:36,622, Network_selecter, INFO]     Test: iter 999 
+ Pred 3 
+ Tgt [ 3.]
+[2018-04-16 16:53:36,623, Network_selecter, INFO]     Test: iter 999 cost 0.345988192781
+[2018-04-16 16:53:36,623, Network_selecter, INFO]     Test: iter 999 acc 0.905 
+
+[2018-04-16 16:53:43,336, Network_selecter, INFO] EA_iter 0 
+
+[2018-04-16 16:53:43,337, Network_selecter, INFO]     Test: iter 1499 
+ Pred 3 
+ Tgt [ 11.]
+[2018-04-16 16:53:43,338, Network_selecter, INFO]     Test: iter 1499 cost 0.418848745251
+[2018-04-16 16:53:43,338, Network_selecter, INFO]     Test: iter 1499 acc 0.886 
+
+[2018-04-16 16:53:50,167, Network_selecter, INFO] EA_iter 0 
+
+[2018-04-16 16:53:50,169, Network_selecter, INFO]     Test: iter 1999 
+ Pred 3 
+ Tgt [ 8.]
+[2018-04-16 16:53:50,169, Network_selecter, INFO]     Test: iter 1999 cost 0.453396656692
+[2018-04-16 16:53:50,170, Network_selecter, INFO]     Test: iter 1999 acc 0.8765 
+
+[2018-04-16 16:53:56,946, Network_selecter, INFO] EA_iter 0 
+
+[2018-04-16 16:53:56,947, Network_selecter, INFO]     Test: iter 2499 
+ Pred 3 
+ Tgt [ 4.]
+[2018-04-16 16:53:56,948, Network_selecter, INFO]     Test: iter 2499 cost 0.434534459954
+[2018-04-16 16:53:56,948, Network_selecter, INFO]     Test: iter 2499 acc 0.8748 
+
+[2018-04-16 16:54:04,161, Network_selecter, INFO] EA_iter 0 
+
+[2018-04-16 16:54:04,162, Network_selecter, INFO]     Test: iter 2999 
+ Pred 3 
+ Tgt [ 7.]
+[2018-04-16 16:54:04,164, Network_selecter, INFO]     Test: iter 2999 cost 0.379701954376
+[2018-04-16 16:54:04,164, Network_selecter, INFO]     Test: iter 2999 acc 0.889 
+
+[2018-04-16 16:54:11,562, Network_selecter, INFO] EA_iter 0 
+
+[2018-04-16 16:54:11,564, Network_selecter, INFO]     Test: iter 3499 
+ Pred 3 
+ Tgt [ 5.]
+[2018-04-16 16:54:11,565, Network_selecter, INFO]     Test: iter 3499 cost 0.361055221874
+[2018-04-16 16:54:11,565, Network_selecter, INFO]     Test: iter 3499 acc 0.894857142857 
+
+[2018-04-16 16:54:15,966, Network_selecter, INFO]     Test ACC: acc in iters 0.899048625793 f1 0.90036938018 and fm 0.815221833129
+
+[2018-04-16 16:54:15,966, Network_selecter, INFO]     Test ACC: final acc in iters 0.899048625793 f1 0.90036938018 and fm 0.815221833129
+
+[2018-04-16 16:54:16,001, Network_selecter, INFO]     Test ACC: Confusion matrix 
+[[  0   0   0   0   2   7   0   1   0   3   0   0]
+ [  0 342   0   0   0   0   0   1   0   0   0   0]
+ [  0   0 323   0   0   0   2   0   0   0   8   0]
+ [  0   4  22 243   3   2   1   6   3   3   1  13]
+ [  0   0   0   0 373   1   0   6  12   4   8   0]
+ [  0   0   0   0   0 322   0   0   1   0   0   0]
+ [  0   0   0   0   0   0 292   0   3   3   0   0]
+ [  0   0   0   0   0   0   0 390   0   0   0   0]
+ [  0   1   0   0  12   3   0   0 154   2  21   0]
+ [  0   1   1   0   0  11   9   0  28 148  23   0]
+ [  0   4   3   0   0   0   7   0   1   7 256   0]
+ [  0   0   0 126   0   0   0   0   0   0   2 559]]
+
+[2018-04-16 16:54:16,008, Network_selecter, INFO]     Test ACC: Percentage PRedictions 
+[        nan  0.97159091  0.92550143  0.65853659  0.95641026  0.93063584
+  0.93890675  0.96534653  0.76237624  0.87058824  0.80250784  0.97727273]
+
+[2018-04-16 16:54:16,099, Network_selecter, INFO] EA: TEsting accuracy net 0.899048625793 with f1 0.90036938018 net_dist 0 f1_dist 0
