@@ -70,6 +70,9 @@ class Network_user(object):
         self.division_epochs = config['division_epochs']
         self.GPU = config['GPU']
         self.folder_exp_test = folder_exp_test
+        self.num_block = config['num_block']
+        
+        
         
         return
     
@@ -616,12 +619,22 @@ class Network_user(object):
         
         try:
             if self.network == 'cnn' or self.network == 'cnn_imu':
-                if in_train == True:
-                    if os.path.isfile('../' + self.folder_exp + '/../caffemodel/deepConv_weights_' + self.network +'2.caffemodel'):
-                        weights = '../' + self.folder_exp + '/../caffemodel/deepConv_weights_' + self.network +'2.caffemodel'
-                        self.logger.info('Caffe VGG weights found')
-                        print 'Caffe VGG weights found'
-                    net_test = caffe.Net('../' + self.folder_exp + '/../prototxt/'+ self.network  + '2_' + self.dataset + '_test.prototxt', weights, caffe.TEST)   
+                if self.num_block == 1:
+                    if in_train == True:
+                        if os.path.isfile('../' + self.folder_exp + '/../caffemodel/deepConv_weights_' + self.network +'.caffemodel'):
+                            weights = '../' + self.folder_exp + '/../caffemodel/deepConv_weights_' + self.network +'.caffemodel'
+                            self.logger.info('Caffe VGG weights found')
+                            print 'Caffe VGG weights found'
+                        net_test = caffe.Net('../' + self.folder_exp + '/../prototxt/'+ self.network  + '_' + self.dataset + '_test.prototxt', weights, caffe.TEST)  
+                    
+                    
+                else:
+                    if in_train == True:
+                        if os.path.isfile('../' + self.folder_exp + '/../caffemodel/deepConv_weights_' + self.network +'2.caffemodel'):
+                            weights = '../' + self.folder_exp + '/../caffemodel/deepConv_weights_' + self.network +'2.caffemodel'
+                            self.logger.info('Caffe VGG weights found')
+                            print 'Caffe VGG weights found'
+                        net_test = caffe.Net('../' + self.folder_exp + '/../prototxt/'+ self.network  + '2_' + self.dataset + '_test.prototxt', weights, caffe.TEST)   
                     
 
                 print 'weights copied'

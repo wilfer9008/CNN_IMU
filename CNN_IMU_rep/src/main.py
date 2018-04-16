@@ -29,6 +29,8 @@ def configuration(dataset_idx, network_idx, output_idx, usage_modus_idx = 0, dat
     epochs_plus = 0
     GPU = 2
     
+    num_block = 1  #For gestures and locomotion max 2 blocks, for pamap2 max 3 blocks
+    
     
     if usage_modus[usage_modus_idx] == 'train'  or usage_modus[usage_modus_idx] == 'test': 
         NB_sensor_channels = {'locomotion' : 113, 'gesture' : 113, 'pamap2' : 40}
@@ -104,6 +106,7 @@ def configuration(dataset_idx, network_idx, output_idx, usage_modus_idx = 0, dat
                      'use_maxout' : use_maxout[network[network_idx]],
                      'balancing' : balancing[dataset[dataset_idx]],
                      'GPU': GPU,
+                     'num_block': num_block,
                      'division_epochs' : division_epochs[dataset[dataset_idx]],
                      'NB_sensor_channels' : NB_sensor_channels[dataset[dataset_idx]],
                      'sliding_window_length' : sliding_window_length[dataset[dataset_idx]],
