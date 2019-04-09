@@ -1,5 +1,5 @@
 # CNN_IMU
-Implementation code and parameters of the CNN-IMU presented in the Journal "Convolutional Neural Networks for Human Activity Recognition using Body-Worn Sensors"
+Implementation code and parameters of the CNN-IMU presented in the Journal "Convolutional Neural Networks for Human Activity Recognition using Body-Worn Sensors", see http://www.mdpi.com/2227-9709/5/2/26
 
 Updating in progress.
 
