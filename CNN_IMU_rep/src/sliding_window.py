@@ -1,4 +1,6 @@
 # from http://www.johnvinyard.com/blog/?p=268
+# Refer to https://github.com/sussexwearlab/DeepConvLSTM for details of this module
+# and for citation
 
 import numpy as np
 from numpy.lib.stride_tricks import as_strided as ast
