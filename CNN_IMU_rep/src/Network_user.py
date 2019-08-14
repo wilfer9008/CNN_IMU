@@ -858,12 +858,15 @@ class Network_user(object):
         print("EA_iter {} Loading data...".format(ea_itera))
         
         
+        #You should first create your ".data" files for each of the dataset.
+        #Available, you can find in "preprocessing_pamap2.py" the code
+        #For generating the file for pamap2 dataset
         if self.dataset == 'locomotion':
-            X_train, y_train, X_val, y_val, X_test, y_test = self.load_dataset('/data/fmoya/HAR/opportunity/train_val_test_dataset_locomotion.data')
+            X_train, y_train, X_val, y_val, X_test, y_test = self.load_dataset('path_to_file/train_val_test_dataset_locomotion.data')
         elif self.dataset == 'gesture':
-            X_train, y_train, X_val, y_val, X_test, y_test = self.load_dataset('/data/fmoya/HAR/opportunity/train_val_test_dataset_2.data')
+            X_train, y_train, X_val, y_val, X_test, y_test = self.load_dataset('path_to_file/train_val_test_dataset_2.data')
         elif self.dataset == 'pamap2':
-            X_train, y_train, X_val, y_val, X_test, y_test = self.load_dataset('/data/fmoya/HAR/pamap2/train_val_test_dataset_pamap2_12_classes_norm.data')
+            X_train, y_train, X_val, y_val, X_test, y_test = self.load_dataset('path_to_file/train_val_test_dataset_Pamap2.data')
         if train_test_modus == 0:
             del X_test
             del y_test
